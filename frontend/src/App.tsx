@@ -1,7 +1,7 @@
 
 import AddTodoForm from "./components/AddTodoForm";
 import Hero from "./components/Hero";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
 import Login from "./components/Login";
 import TodoList from "./components/TodoList";
@@ -10,6 +10,11 @@ import useTodos  from "./hooks/useTodos";
 import Register from "./components/Register";
 import loginImage from "./images/new.jpeg"
 import Pomodoro from "./components/Pomodoro";
+import { LogOut,Settings,ChartSpline } from "lucide-react"; 
+ import SettingsPanel from "./components/SettingsPanel";
+import { useState } from "react";
+import { Dashboard } from "./components/Dashboard";
+
 
 function App() {
   const {
@@ -18,8 +23,14 @@ function App() {
     setTodoCompleted,
     deleteTodo,
     deleteAllCompletedTodos,
+    onLogout
   } = useTodos();
 
+
+
+  const [showSettings, setshowSettings] = useState(false)
+
+  const toggleSettingsPanel=()=>{setshowSettings(!showSettings);};
 
   return (
     <Router>
@@ -67,6 +78,10 @@ function App() {
         {/* Todo list route */}
         <Route path="/todos" element={
           <AnimatePresence mode="wait">
+            
+       
+            
+            
             <motion.main
                initial={{ opacity: 0, y: -10 }}   // Smaller y movement for a more subtle effect
                animate={{ opacity: 1, y: 0 }}     // Moves back to original position smoothly
@@ -74,7 +89,25 @@ function App() {
                transition={{ duration: 0.5, ease: "easeInOut" }} 
               className="py-10 h-screen w-screen  space-y-5 overflow-y-auto bg-cover bg-center"style={{ backgroundImage: `url(${loginImage})` }}
             >
-              
+      <div className="fixed top-0 right-0 p-4 space-x-2 z-10">
+
+
+      <Link to="/Dashboard">
+
+      <button  className="text-white p-2 rounded hover:bg-gray-400">
+          <ChartSpline size={25} />
+        </button>
+        </Link>
+        <button  onClick={toggleSettingsPanel} className=" text-white p-2 rounded hover:bg-gray-400">
+          <Settings size={25} />
+        </button>
+        <button  onClick={onLogout} className="text-white p-2 rounded hover:bg-gray-400">
+          <LogOut  size={25} />
+        </button>
+        <SettingsPanel show={showSettings} onClose={toggleSettingsPanel}/>
+
+        </div>
+         
               <h1 className=" text-white font-bold text-3xl text-center">FocusFlow</h1>
               <motion.div
     
@@ -83,6 +116,7 @@ function App() {
                 transition={{ duration: 0.5}}
                 className="max-w-lg mx-auto  bg-slate-50  rounded-lg   p-5 space-y-6 "
               >
+                
                 <Pomodoro/>
                 <AddTodoForm  onSubmit={addTodo}/>
                 <TodoList 
@@ -98,13 +132,20 @@ function App() {
             
           </AnimatePresence>
         } />
-        <Route path="">element={
-          
+        <Route path="/Dashboard" element={
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.9, ease: "easeInOut" }}
+              >
+              <Dashboard />
+            </motion.div>
+          </AnimatePresence>
+        } />
 
-          
-          }
-
-        </Route>
+      
       </Routes>
 
     </Router>

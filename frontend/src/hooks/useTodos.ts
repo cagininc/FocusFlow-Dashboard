@@ -38,12 +38,20 @@ export default function useTodos() {
   function deleteAllCompletedTodos() {
     setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed));
   }
+function onLogout(){
+  localStorage.removeItem("token");
+  window.location.href="/login"
 
+
+
+}
   return {
+
     todos,
     setTodoCompleted,
     addTodo,
     deleteTodo,
     deleteAllCompletedTodos,
+    onLogout
   };
 }
