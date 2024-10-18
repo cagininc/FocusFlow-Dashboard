@@ -1,5 +1,7 @@
 import { Todo } from "../types/todo";
 import TodoItem from "./TodoItem";
+// import { LogOut, Settings, User } from "lucide-react"; 
+
 // import { LogOut} from "lucide-react";
 
 interface TodoListProps {
@@ -22,6 +24,7 @@ export default function TodoList({
 
   return (
     <div >
+           
       <div className="space-y-2">
         {todosSorted.map((todo) => (
           <TodoItem
