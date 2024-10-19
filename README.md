@@ -4,7 +4,7 @@ FocusFlow Dashboard is a productivity and task management application designed t
 
 
 ## Screenshots
-![FocusFlow Dashboard](/UI-demo.png)
+![FocusFlow Dashboard](/uı-demo.png)
 
 ## Features
 
