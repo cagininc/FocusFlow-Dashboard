@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5000;
 const cors=require('cors');
 //import routes
 const authRoutes = require("./routes/auth");
+const taskRoutes=require("./routes/tasks")
 const  SECRET_KEY=process.env.SECRET_KEY
 
 
@@ -98,7 +99,7 @@ function authenticateJWT(req, res, next) {
 
 // Route kullanımı
 app.use("/auth", authRoutes);
-// app.use("/tasks", taskRoutes);
+ app.use("/tasks", taskRoutes);
 
 // start server
 app.listen(PORT, () => {

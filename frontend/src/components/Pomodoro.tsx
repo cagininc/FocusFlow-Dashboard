@@ -36,7 +36,7 @@ const Pomodoro = () => {
       <div className="text-5xl font-mono">
         {formatTime(timeLeft)}
       </div>
-      <div className="space-x-4">
+      <div className="   space-x-4">
         <button
           onClick={handleStartStop}
           className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
@@ -49,7 +49,10 @@ const Pomodoro = () => {
         >
           Reset
         </button>
-      </div>
+        {/* <div className="text-lg font-semibold mt-6 justify-center">
+        <p > ilk taskin adı burada yazıcak böylece hangi görevde oldugun anlaşılacak</p>
+        </div> */}
+        </div>
     </div>
   );
 };
