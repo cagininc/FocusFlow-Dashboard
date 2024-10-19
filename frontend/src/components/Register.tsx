@@ -42,7 +42,7 @@ if (response.ok){
   //message?
   console.log("data gönderildi backende")
   setTimeout(() => {
-    window.location.href = "/login"; // Login sayfasına yönlendirme
+    window.location.href = "/login"; // Login 
   }, 3000);}
   else{setErrorMessage("Registration failed")}
 }
