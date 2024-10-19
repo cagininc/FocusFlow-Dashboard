@@ -12,7 +12,7 @@ FocusFlow Dashboard is a productivity and task management application designed t
 - **Pomodoro Timer**: Organize your work with Pomodoro-style time tracking.
 - **Dashboard**: Monitor your daily, weekly, and monthly performance.
 - **Retro Japanese Anime Style UI**: A nostalgic and minimalistic look and feel.
-- **Dark Mode**: Customize the interface with light or dark mode.a
+
 
 ## Technologies
 
@@ -25,6 +25,7 @@ This project is built using the following technologies:
 - **Encryption**: Argon2
 - - **Tailwind CSS**
   - - **ShadnUI**
+    - **Background images created with Gemini AI.**
 
 
 ## Installation
