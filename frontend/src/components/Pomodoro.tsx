@@ -1,9 +1,32 @@
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
+import { usePomodoro } from "@/context/PomodoroContext";
 
 const Pomodoro = () => {
-  const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 dakika
-  const [isRunning, setIsRunning] = useState(false);
 
+  const {
+    // activeTask,
+    // setActiveTask,
+    // pomodoroDuration,
+    // setPomodoroDuration,
+    timeLeft,
+    setTimeLeft,
+    // shortBreakDuration,
+    // setShortBreakDuration,
+    // longBreakDuration,
+    // setLongBreakDuration,
+
+    completedPomodoros,
+    setCompletedPomodoros,
+    // totalTimeSpent,
+    // setTotalTimeSpent,
+    // currentTimer,
+    // setCurrentTimer,
+    isRunning,
+    setIsRunning}=usePomodoro()//FROM CONTEXT
+
+
+
+//We will deliver the completed minutes to the duration variable for the DB, and then analytics will be provided.
   const formatTime = (timeInSeconds: number) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
@@ -16,6 +39,7 @@ const Pomodoro = () => {
       timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     } else if (timeLeft === 0) {
       setIsRunning(false);
+      setCompletedPomodoros(completedPomodoros + 1);
     }
 
     return () => clearTimeout(timer);

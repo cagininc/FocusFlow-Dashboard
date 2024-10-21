@@ -14,6 +14,7 @@ import { LogOut,Settings,ChartSpline } from "lucide-react";
  import SettingsPanel from "./components/SettingsPanel";
 import { useState } from "react";
 import { Dashboard } from "./components/Dashboard";
+import { PomodoroProvider } from "./context/PomodoroContext";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
   const toggleSettingsPanel=()=>{setshowSettings(!showSettings);};
 
   return (
+    <PomodoroProvider>
     <Router>
       <Routes>
         {/*Hero componenti */}
@@ -149,6 +151,7 @@ function App() {
       </Routes>
 
     </Router>
+    </PomodoroProvider>
     
   );
 }

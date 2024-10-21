@@ -1,9 +1,26 @@
+
+import { usePomodoro } from "@/context/PomodoroContext";
+import { Plus,Minus } from "lucide-react";
+
 interface SettingsPanelProps {
   show: boolean;
   onClose: () => void;
 }
 
 export default function SettingsPanel({ show, onClose }: SettingsPanelProps) {
+  const { timeLeft, setTimeLeft } = usePomodoro(); //
+  
+  const increasePomodoro=()=>{
+if (timeLeft<60) {
+setTimeLeft(timeLeft+5)}
+console.log("i pressed plus sign ")
+
+  }
+  const decreasePomodoro=()=>{
+    if (timeLeft>10)
+    setTimeLeft(timeLeft-5)
+  }
+  
   return (
     <div
       className={`fixed top-0 right-0 w-64 h-full bg-slate-50 text-black shadow-lg transform ${
@@ -21,12 +38,14 @@ export default function SettingsPanel({ show, onClose }: SettingsPanelProps) {
 
         {/* CARD */}
         <div className="mt-4 bg-white rounded-lg shadow-md p-6">
-          <label className="block text-sm mb-2">Setting 1</label>
-          <input type="checkbox" className="mb-4" />
-          <label className="block text-sm mb-2">Setting 2</label>
-          <input type="checkbox" />
-
-          <div className="flex items-center space-x-4 mt-4">
+        <div className="flex items-center gap-2 ml-auto">
+                <button  onClick={increasePomodoro}   className="p-1 hover:bg-gray-200" >
+                     <Plus size={15} className="text-gray-500"/>
+                    </button>
+                    <button  onClick={decreasePomodoro} className="p-1  hover:bg-gray-200" >
+                     <Minus size={15}   className="text-gray-500 "/>
+                    </button>
+                    </div>
             <label htmlFor="volume" className="text-sm font-medium">
               Volume
             </label>
@@ -42,6 +61,6 @@ export default function SettingsPanel({ show, onClose }: SettingsPanelProps) {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 }
