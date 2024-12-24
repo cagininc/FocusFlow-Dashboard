@@ -1,6 +1,6 @@
 # FocusFlow Dashboard
 
-FocusFlow Dashboard is a productivity and task management application designed to help you stay organized and efficient. The app features a minimalist retro Japanese anime-inspired interface, with support for the Pomodoro technique through a built-in timer. It also includes a high-quality task management system and a sleek dashboard to track your progress.
+FocusFlow Dashboard is a productivity and task management application designed to help you stay organized and efficient. The app features a minimalist interface, with support for the Pomodoro technique through a built-in timer. It also includes a high-quality task management system and a sleek dashboard to track your progress.
 
 
 ## Screenshots
